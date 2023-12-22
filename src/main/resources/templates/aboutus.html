@@ -1,0 +1,102 @@
+<!-- Template Thymeleaf -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+	<title>About Us</title>
+	<meta name="title" content="About Us" />
+	<meta name="Keywords" content="business database" />
+	<meta name="Description" content="About the business database and its interface" />
+	<meta name="robots" content="index,follow" />
+	<meta name="googlebot" content="index,follow" />
+	<meta name="author" content="Les Bogdan" />
+	<meta name="owner" content="Les Bogdan" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" href="style.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-width: 599px)" href="stylemobile.css" />
+	<script type="text/javascript">
+		var sf="var";
+	</script>
+	
+	<script type="text/javascript">
+	function bottombar()
+	{
+	var el=document.getElementById("wbottombar").offsetTop;
+	var sel=document.getElementById("polx").offsetTop;
+	var windowwh=window.innerWidth;
+
+	if(el<sel-50) 
+	{ 
+	document.getElementById("wbottombar").style.position="fixed";
+	document.getElementById("wbottombar").style.bottom=0; 
+	}
+	}
+	</script>
+	
+	<script type="text/javascript">
+		function loadpg()
+		{
+		bottombar();
+		}
+	</script>
+</head>
+<body class="bodycl" onload="loadpg();">
+<nav id="sitenav" class="sitenavcl">
+	<div class="wnavcl" id="wnav">
+	<div id="wnavsearch" class="wnavactpagecl"><a id="navsearch" class="actpagecl" href="/" title='Search for companies from our business database'>Search Businesses</a></div>
+	<div id="wnavbrowse" class="wnavactpagecl"><a id="navbrowse" class="actpagecl" href="/browsebusinesses.html" title='See a list of businesses from different countries'>Browse Businesses</a></div>
+	<div id="wnavadd" class="wnavactpagecl"><a id="navadd" class="actpagecl" href="/addcompany.html" title='Add your company to our business database'>Add Company</a></div>
+	</div>
+</nav>
+<!-- end navigation -->
+
+<div id="wshh1" class="wh1cl"><h1 id="shh1" class="h1cl">About Us</h1></div>
+
+
+<!-- page content -->
+<div id="wat">
+<table id="at">
+<tr id="atr">
+
+<td id="atd1">
+<p class="aupcl">
+This web application is an interface for a PostgreSQL database for businesses.
+The PostgreSQL database contains more than 100.000 records of demonstration businesses(names, industries, countries, websites ...).
+Apache Tomcat is the server used for this application, and the server side processing is don by Java 17, which is used to query the database and to process data according to the user's request.
+</p>
+
+<p class="aupcl">
+On the client side i have used a combination of HTML for the structure of the web pages, CSS for styling them, and JavaScript for validating the user's input and minor restailing.
+</p>
+
+<p class="aupcl">Have a nice day and enjoy this application.</p>
+
+</td>
+
+<td id="atd2">
+<div id="waupic">
+<!-- <img id="aupic" class="aupiccl" src="world.jpg" alt="World of business"> -->
+<img id="aupic" class="aupiccl" th:src="@{/images/world.jpg}" alt="World of business" />
+</div>
+</td>
+
+
+</tr>
+</table>
+</div>
+
+<!-- end page content -->
+
+
+<!-- bottom bar -->
+<div id="polx" class="polxcl" style="position: fixed;bottom: 0;"><!-- --></div>
+<div id="wbottombar" class="wbottombarcl" style="display: block;width: 99%;">
+<div id="bottombar" class="bottombarcl" style="display: block;width: 100%;">
+<div id="wnavcontact" class="wnavcontactcl"><a id="navcontact" class="navcontactcl" href="/contact.html" title='Contact information for developer'>Contact</a></div>
+<div id="wnavabout" class="wnavaboutcl"><a id="navabout" class="navaboutcl" href="/aboutus.html" title='Find more about our business database'>AboutUs</a></div>
+</div></div>
+<!-- end bottom bar -->
+
+</body>
+</html>

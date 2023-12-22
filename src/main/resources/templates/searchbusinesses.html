@@ -1,0 +1,120 @@
+<!-- Template Thymeleaf -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+	<title>Businesses Search</title>
+	<meta name="title" content="Businesses Search" />
+	<meta name="Keywords" content="businesses search, business database" />
+	<meta name="Description" content="Search for businesses in a database with more than 100.000 companies" />
+	<meta name="robots" content="index,follow" />
+	<meta name="googlebot" content="index,follow" />
+	<meta name="author" content="Les Bogdan" />
+	<meta name="owner" content="Les Bogdan" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" href="style.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-width: 599px)" href="stylemobile.css" />
+	<script type="text/javascript">
+		var sf="var";
+	</script>
+	
+	<script type="text/javascript">
+	function versearch() 
+	{
+	document.getElementById("verifiesh").innerHTML="<br>";
+	var shw=document.getElementById("searchf").value;
+	shw=shw.trim();
+	document.getElementById("searchf").value=shw;
+	var n=shw.length;
+	if(n<3)
+	 {
+	   document.getElementById("verifiesh").innerHTML="<span>Please enter minimum 3 characters.</span>";
+	   return false;
+	 }
+	document.getElementById("servres").innerHTML="<span  style='font-weight: bold;'>Loading ...</span>";
+	return true;
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function bottombar()
+	{
+	document.getElementById("wbottombar").style.position="relative";
+	var el=document.getElementById("wbottombar").offsetTop;
+	var sel=document.getElementById("polx").offsetTop;
+	var windowwh=window.innerWidth;
+
+	if(el<sel-50) 
+	{ 
+	document.getElementById("wbottombar").style.position="fixed";
+	document.getElementById("wbottombar").style.bottom=0; 
+	}
+	}
+	</script>
+	
+	<script type="text/javascript">
+		function loadpg()
+		{
+		bottombar();
+		}
+	</script>
+</head>
+<body class="bodycl" onload="loadpg();">
+<nav id="sitenav" class="sitenavcl">
+	<div class="wnavcl" id="wnav">
+	<div id="wnavsearch" class="wnavactpagecl"><a id="navsearch" class="actpagecl" href="/" title='Search for companies from our business database'>Search Businesses</a></div>
+	<div id="wnavbrowse" class="wnavactpagecl"><a id="navbrowse" class="actpagecl" href="/browsebusinesses.html" title='See a list of businesses from different countries'>Browse Businesses</a></div>
+	<div id="wnavadd" class="wnavactpagecl"><a id="navadd" class="actpagecl" href="/addcompany.html" title='Add your company to our business database'>Add Company</a></div>
+	</div>
+</nav>
+<!-- end navigation -->
+
+<div id="wshh1" class="wh1cl"><h1 id="shh1" class="h1cl">Businesses Search</h1></div>
+
+
+<!-- page content -->
+
+<div id="wwsearchdb" class="wwsearchdbcl">
+<div id="wsearchdb" class="wsearchdbcl">
+<form id="formsearch" name="formsearch" onsubmit="return versearch();" th:action="@{/searchload.html}" th:object="${wordsh}" method="GET">
+
+<div id="wsearchbox" class="wsearchboxcl">
+ <input type="text" id="searchf" class="searchboxcl" maxlength="100" th:field="*{word}" placeholder="Company, industry, country ..." /> 
+</div>
+
+<div id="wsearchbtt" class="wsearchbttcl">
+<input id="searchbss" class="searchbttcl" type="submit" value="Search"/>
+</div>
+
+</form>
+</div></div>
+<div id="verifiesh" style="display: block;"><br/></div>
+
+
+
+<div id="wservres" class="wservrescl">
+
+ <div id="servres" class="servrescl"></div> 
+
+</div>
+
+
+
+<div id="wsressh" style="display: none;">
+<iframe id="sresshearch" name="sresshearch" class="sresshearchcl" style="width: 90%;height: 200px;"></iframe>
+</div>
+<!-- end page content -->
+
+
+<!-- bottom bar -->
+<div id="polx" class="polxcl" style="position: fixed;bottom: 0;"><!-- --></div>
+<div id="wbottombar" class="wbottombarcl" style="display: block;width: 99%;">
+<div id="bottombar" class="bottombarcl" style="display: block;width: 100%;">
+<div id="wnavcontact" class="wnavcontactcl"><a id="navcontact" class="navcontactcl" href="/contact.html" title='Contact information for developer'>Contact</a></div>
+<div id="wnavabout" class="wnavaboutcl"><a id="navabout" class="navaboutcl" href="/aboutus.html" title='Find more about our business database'>AboutUs</a></div>
+</div></div>
+<!-- end bottom bar -->
+
+</body>
+</html>

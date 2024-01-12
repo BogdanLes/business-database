@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class StyleController {
 
     @RequestMapping({"/style.css"})
-    public String displayHomePage() {
+    public String stylePage() {
         return "style.css";
+    }
+
+    @RequestMapping({"/stylemobile.css"})
+    public String styleMobilePage() {
+        return "stylemobile.css";
     }
 
 }
